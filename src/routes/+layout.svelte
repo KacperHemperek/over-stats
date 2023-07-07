@@ -7,7 +7,7 @@
 	let showSidebar = false;
 </script>
 
-<main class="flex flex-col">
+<div class="flex flex-col">
 	<nav class="container lg:max-w-4xl mx-auto p-4">
 		<div class="sticky text-zinc-50 bg-zinc-900 flex justify-between items-center">
 			<a href="/" class="text-xl font-bold uppercase">
@@ -64,6 +64,7 @@
 			</div>
 		</div>
 	</nav>
-
-	<slot />
-</main>
+	<main class="container max-w-4xl mx-auto">
+		<slot />
+	</main>
+</div>
