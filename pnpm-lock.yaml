@@ -11,14 +11,11 @@ dependencies:
   chrome-aws-lambda:
     specifier: ^10.1.0
     version: 10.1.0(puppeteer-core@20.8.0)
-  playwright-aws-lambda:
-    specifier: ^0.10.0
-    version: 0.10.0(playwright-core@1.35.1)
   playwright-core:
     specifier: ^1.35.1
     version: 1.35.1
   puppeteer-core:
-    specifier: ^20.8.0
+    specifier: https://github.com/seanaye/puppeteer/releases/download/v5.5.0-apple-silicon/puppeteer-core-5.5.0-post.tgz
     version: 20.8.0(typescript@5.1.6)
 
 devDependencies:
@@ -2046,16 +2043,6 @@ packages:
       mlly: 1.4.0
       pathe: 1.1.1
     dev: true
-
-  /playwright-aws-lambda@0.10.0(playwright-core@1.35.1):
-    resolution: {integrity: sha512-osGbx0Nwco6E9JZK/2Uq3lrQ5rmjLEQ9Iw0286wQZ93s+8Ok8IwOmzP765JGTRDvjd/5woE5qwICnhw9iPisOQ==}
-    engines: {node: '>= 8.0.0'}
-    peerDependencies:
-      playwright-core: ^1
-    dependencies:
-      lambdafs: 2.1.1
-      playwright-core: 1.35.1
-    dev: false
 
   /playwright-core@1.35.1:
     resolution: {integrity: sha512-pNXb6CQ7OqmGDRspEjlxE49w+4YtR6a3X6mT1hZXeJHWmsEz7SunmvZeiG/+y1yyMZdHnnn73WKYdtV1er0Xyg==}
