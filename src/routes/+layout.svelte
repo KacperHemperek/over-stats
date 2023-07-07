@@ -1,50 +1,69 @@
 <script>
 	import './styles.css';
+	import MobileNavButton from '../feaures/navbar/mobile-nav-button.svelte';
+	import { fly } from 'svelte/transition';
+	import { cubicOut } from 'svelte/easing';
+
+	let showSidebar = false;
 </script>
 
-<div class="app">
-	<main>
-		<slot />
-	</main>
+<main class="flex flex-col">
+	<nav class="container lg:max-w-4xl mx-auto p-4">
+		<div class="sticky text-zinc-50 bg-zinc-900 flex justify-between items-center">
+			<a href="/" class="text-xl font-bold uppercase">
+				Over <span class="text-orange-500">Stats</span>
+			</a>
+			<MobileNavButton on:click={() => (showSidebar = true)}>
+				<svg
+					slot="icon"
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					class="lucide lucide-menu"
+					><line x1="4" x2="20" y1="12" y2="12" /><line x1="4" x2="20" y1="6" y2="6" /><line
+						x1="4"
+						x2="20"
+						y1="18"
+						y2="18"
+					/></svg
+				>
+			</MobileNavButton>
+			{#if showSidebar}
+				<div
+					class="w-screen h-[100dvh] bg-zinc-900 lg:hidden fixed top-0 left-0 shadow-md"
+					in:fly={{ duration: 400, x: '100%', opacity: 1, easing: cubicOut }}
+					out:fly={{ duration: 400, x: '100%', opacity: 1, easing: cubicOut }}
+				>
+					<div class="p-4 flex justify-end items-center">
+						<MobileNavButton on:click={() => (showSidebar = false)}>
+							<svg
+								slot="icon"
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								class="lucide lucide-x"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg
+							>
+						</MobileNavButton>
+					</div>
+					<div class="grid p-4">
+						<a href="/" class="text-2xl font-semibold text-center"> Home </a>
+					</div>
+				</div>
+			{/if}
 
-	<footer>
-		<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
-	</footer>
-</div>
+			<div class="space-x-12 hidden lg:block">
+				<a href="/" class=" font-semibold"> Home </a>
+			</div>
+		</div>
+	</nav>
 
-<style>
-	.app {
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
-	}
-
-	main {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		padding: 1rem;
-		width: 100%;
-		max-width: 64rem;
-		margin: 0 auto;
-		box-sizing: border-box;
-	}
-
-	footer {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding: 12px;
-	}
-
-	footer a {
-		font-weight: bold;
-	}
-
-	@media (min-width: 480px) {
-		footer {
-			padding: 12px 0;
-		}
-	}
-</style>
+	<slot />
+</main>
