@@ -28,5 +28,8 @@
 		"vite": "^4.3.6",
 		"vitest": "^0.32.2"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"puppeteer": "^20.8.0"
+	}
 }
