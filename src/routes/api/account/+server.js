@@ -1,5 +1,5 @@
 import { error, json } from '@sveltejs/kit';
-import * as cheerio from 'cheerio';
+// import * as cheerio from 'cheerio';
 import playwright from 'playwright-aws-lambda';
 
 /** @type {import('../$types').RequestHandler} */
