@@ -11,6 +11,12 @@ dependencies:
   playwright:
     specifier: ^1.35.1
     version: 1.35.1
+  playwright-aws-lambda:
+    specifier: ^0.10.0
+    version: 0.10.0(playwright-core@1.35.1)
+  playwright-core:
+    specifier: ^1.35.1
+    version: 1.35.1
 
 devDependencies:
   '@fontsource/fira-mono':
@@ -1412,6 +1418,14 @@ packages:
     resolution: {integrity: sha512-uMCj6+hZYDoffuvAJjFAPz56E9uoowFHmTkqRtRq5WyC5Q6Cu/fTZKNQpX/RbzChBYLLl3lo8CjFZBAZXq9qFg==}
     dev: true
 
+  /lambdafs@2.1.1:
+    resolution: {integrity: sha512-x5k8JcoJWkWLvCVBzrl4pzvkEHSgSBqFjg3Dpsc4AcTMq7oUMym4cL/gRTZ6VM4mUMY+M0dIbQ+V1c1tsqqanQ==}
+    engines: {node: '>= 10.16'}
+    hasBin: true
+    dev: false
+    bundledDependencies:
+      - tar-fs
+
   /levn@0.4.1:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
     engines: {node: '>= 0.8.0'}
@@ -1712,6 +1726,16 @@ packages:
       mlly: 1.4.0
       pathe: 1.1.1
     dev: true
+
+  /playwright-aws-lambda@0.10.0(playwright-core@1.35.1):
+    resolution: {integrity: sha512-osGbx0Nwco6E9JZK/2Uq3lrQ5rmjLEQ9Iw0286wQZ93s+8Ok8IwOmzP765JGTRDvjd/5woE5qwICnhw9iPisOQ==}
+    engines: {node: '>= 8.0.0'}
+    peerDependencies:
+      playwright-core: ^1
+    dependencies:
+      lambdafs: 2.1.1
+      playwright-core: 1.35.1
+    dev: false
 
   /playwright-core@1.35.1:
     resolution: {integrity: sha512-pNXb6CQ7OqmGDRspEjlxE49w+4YtR6a3X6mT1hZXeJHWmsEz7SunmvZeiG/+y1yyMZdHnnn73WKYdtV1er0Xyg==}

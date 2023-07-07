@@ -1,16 +1,14 @@
 import { error, json } from '@sveltejs/kit';
 import * as cheerio from 'cheerio';
-import { chromium } from 'playwright';
+import playwright from 'playwright-aws-lambda';
 
 /** @type {import('../$types').RequestHandler} */
 export async function GET() {
+	let browser;
 	try {
-		const browser = await chromium.launch({
-			headless: false,
-			args: ['--headless=new']
-		});
-
+		browser = await playwright.launchChromium({ headless: true, args: ['--headless=new'] });
 		const context = await browser.newContext();
+
 		const page = await context.newPage();
 		await page.goto('https://overwatch.blizzard.com/en-us/career/czitermaster-2477/');
 
@@ -27,5 +25,9 @@ export async function GET() {
 		return json({ name });
 	} catch (err) {
 		throw error(500, 'Internal server error');
+	} finally {
+		if (browser) {
+			await browser.close();
+		}
 	}
 }
