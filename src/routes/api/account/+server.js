@@ -1,18 +1,21 @@
 import { error, json } from '@sveltejs/kit';
 // import * as cheerio from 'cheerio';
-import playwright from 'playwright-aws-lambda';
+import chromium from 'chrome-aws-lambda';
+import playwright from 'playwright-core';
 
 /** @type {import('../$types').RequestHandler} */
 export async function GET() {
 	let browser;
 	try {
-		browser = await playwright.launchChromium({ headless: true, args: ['--headless=new'] });
-		const context = await browser.newContext();
+		browser = await playwright.chromium.launch({
+			args: chromium.args,
+			executablePath:
+				process.env.NODE_ENV !== 'development'
+					? await chromium.executablePath
+					: '/usr/bin/chromium',
+			headless: process.env.NODE_ENV !== 'development' ? chromium.headless : true
+		});
 
-		const page = await context.newPage();
-		await page.goto('https://overwatch.blizzard.com/en-us/career/czitermaster-2477/');
-
-		const name = await page.$eval('.Profile-player--name', (el) => el.textContent);
 		// const res = await fetch('https://overwatch.blizzard.com/en-us/career/czitermaster-2477/');
 
 		// const html = await res.text();
@@ -22,7 +25,7 @@ export async function GET() {
 		// const name = $('.Profile-player--name').text();
 		browser.close();
 
-		return json({ name });
+		return json({ hello: 'world' });
 	} catch (err) {
 		throw error(500, 'Internal server error');
 	} finally {

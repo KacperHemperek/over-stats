@@ -11,9 +11,6 @@ dependencies:
   chrome-aws-lambda:
     specifier: ^10.1.0
     version: 10.1.0(puppeteer-core@20.8.0)
-  playwright:
-    specifier: ^1.35.1
-    version: 1.35.1
   playwright-aws-lambda:
     specifier: ^0.10.0
     version: 0.10.0(playwright-core@1.35.1)
@@ -78,7 +75,7 @@ devDependencies:
     version: 4.4.2(@types/node@20.4.0)
   vitest:
     specifier: ^0.32.2
-    version: 0.32.4(playwright@1.35.1)
+    version: 0.32.4
 
 packages:
 
@@ -2064,14 +2061,7 @@ packages:
     resolution: {integrity: sha512-pNXb6CQ7OqmGDRspEjlxE49w+4YtR6a3X6mT1hZXeJHWmsEz7SunmvZeiG/+y1yyMZdHnnn73WKYdtV1er0Xyg==}
     engines: {node: '>=16'}
     hasBin: true
-
-  /playwright@1.35.1:
-    resolution: {integrity: sha512-NbwBeGJLu5m7VGM0+xtlmLAH9VUfWwYOhUi/lSEDyGg46r1CA9RWlvoc5yywxR9AzQb0mOCm7bWtOXV7/w43ZA==}
-    engines: {node: '>=16'}
-    hasBin: true
-    requiresBuild: true
-    dependencies:
-      playwright-core: 1.35.1
+    dev: false
 
   /postcss-import@15.1.0(postcss@8.4.25):
     resolution: {integrity: sha512-hpr+J05B2FVYUAXHeK1YyI267J/dDDhMU6B6civm8hSY1jYJnBXxzKDKDswzJmtLHryrjhnDjqqp/49t8FALew==}
@@ -2897,7 +2887,7 @@ packages:
       vite: 4.4.2(@types/node@20.4.0)
     dev: true
 
-  /vitest@0.32.4(playwright@1.35.1):
+  /vitest@0.32.4:
     resolution: {integrity: sha512-3czFm8RnrsWwIzVDu/Ca48Y/M+qh3vOnF16czJm98Q/AN1y3B6PBsyV8Re91Ty5s7txKNjEhpgtGPcfdbh2MZg==}
     engines: {node: '>=v14.18.0'}
     hasBin: true
@@ -2945,7 +2935,6 @@ packages:
       magic-string: 0.30.1
       pathe: 1.1.1
       picocolors: 1.0.0
-      playwright: 1.35.1
       std-env: 3.3.3
       strip-literal: 1.0.1
       tinybench: 2.5.0
