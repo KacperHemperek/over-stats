@@ -1,25 +1,18 @@
 import { error, json } from '@sveltejs/kit';
-import puppeteer from 'puppeteer';
+import * as cheerio from 'cheerio';
 
 /** @type {import('../$types').RequestHandler} */
 export async function GET() {
 	try {
-		const browser = await puppeteer.launch({ headless: 'new' });
+		const res = await fetch('https://overwatch.blizzard.com/en-us/career/czitermaster-2477/');
 
-		const page = await browser.newPage();
+		const html = await res.text();
 
-		await page.goto('https://overwatch.blizzard.com/en-us/career/czitermaster-2477/', {
-			waitUntil: 'domcontentloaded'
-		});
+		const $ = cheerio.load(html);
 
-		const displayName = await page.evaluate(() => {
-			const name = document.querySelector('.Profile-player--name')?.innerHTML;
+		const name = $('.Profile-player--name').text();
 
-			return name;
-		});
-
-		browser.close();
-		return json({ displayName });
+		return json({ name });
 	} catch (err) {
 		throw error(500, 'Internal server error');
 	}
