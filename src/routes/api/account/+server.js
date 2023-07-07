@@ -1,14 +1,12 @@
+import { getCheerioHtml } from '$lib/utils/getCheerioHtml';
 import { error, json } from '@sveltejs/kit';
-import * as cheerio from 'cheerio';
 
 /** @type {import('../$types').RequestHandler} */
 export async function GET() {
 	try {
-		const res = await fetch('https://overwatch.blizzard.com/en-us/career/czitermaster-2477/');
-
-		const html = await res.text();
-
-		const $ = cheerio.load(html);
+		const $ = await getCheerioHtml(
+			'https://overwatch.blizzard.com/en-us/career/czitermaster-2477/'
+		);
 
 		const name = $('.Profile-player--name').text();
 
