@@ -66,7 +66,7 @@
 
 <article>
 	<h1 class="text-2xl font-bold text-center uppercase mb-8">Features</h1>
-	<div class="grid mb-6 gap-6 lg:grid-cols-3">
+	<div class="grid mb-6 gap-6 md:grid-cols-3">
 		{#each homepageCards as card}
 			<InfoCard title={card.title} description={card.description}>
 				{@html card.icon}
