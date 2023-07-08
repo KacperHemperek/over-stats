@@ -7,14 +7,17 @@
 	export let href;
 </script>
 
-<a {href} class="flex justify-cente border-2 border-zinc-600 p-4 flex-col">
+<a
+	{href}
+	class="text-zinc-500 flex border-2 border-zinc-600 p-4 flex-col hover:text-zinc-400 hover:border-zinc-400 transition duration-300"
+>
 	<div class=" flex items-center gap-1 mb-2">
 		<h2 class="text-lg font-bold text-orange-500">{title}</h2>
-		<div class="w-4 h-4 flex text-zinc-500">
+		<div class="w-4 h-4 flex">
 			<slot />
 		</div>
 	</div>
-	<p class="text-zinc-500">
+	<p>
 		{description}
 	</p>
 </a>
