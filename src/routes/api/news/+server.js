@@ -1,7 +1,7 @@
 import { getCheerioHtml } from '$lib/utils/getCheerioHtml';
 import { error, json } from '@sveltejs/kit';
 
-/** @type {import('../$types').RequestHandler} */
+/** @type {import('./$types').RequestHandler} */
 export async function GET() {
 	try {
 		const $ = await getCheerioHtml('https://overwatch.blizzard.com/en-us/news/');
