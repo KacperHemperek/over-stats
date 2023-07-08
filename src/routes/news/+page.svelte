@@ -1,5 +1,8 @@
 <script>
 	import SectionHeader from '../../feaures/common/section-header.svelte';
+	import NewsCard from '../../feaures/news/news-card.svelte';
+	/** @type {import('./$types').PageData} */
+	export let data;
 </script>
 
 <SectionHeader>
@@ -9,3 +12,8 @@
 		and more</span
 	>
 </SectionHeader>
+<section class="grid gap-6 md:grid-cols-2">
+	{#each data.cards as card}
+		<NewsCard title={card.title} src={card.imgSrc} href={card.link} />
+	{/each}
+</section>
