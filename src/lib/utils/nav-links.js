@@ -3,5 +3,6 @@
  */
 export const links = [
 	{ name: 'Home', href: '/' },
-	{ name: 'News', href: '/news' }
+	{ name: 'News', href: '/news' },
+	{ name: 'Search', href: '/search' }
 ];

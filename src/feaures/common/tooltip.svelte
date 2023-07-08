@@ -1,9 +1,7 @@
 <script>
 	import { fly } from 'svelte/transition';
-
 	/** @type{string} */
 	export let title;
-
 	/** @type{string} */
 	export let message;
 </script>
