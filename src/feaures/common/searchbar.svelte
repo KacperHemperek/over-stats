@@ -8,9 +8,16 @@
 	// @ts-ignore -- keydown event
 	const handleKeydown = (event) => {
 		if (event.key === 'Enter') {
-			dispatch('search');
+			const [username, tag] = value.split('#');
+
+			dispatch(
+				'search',
+				isValid ? { username, tag, isValid } : { username: undefined, tag: undefined, isValid }
+			);
 		}
 	};
+
+	$: isValid = value.match(/(\w{1,})(#)(\d{4,})/gim);
 </script>
 
 <label
@@ -35,7 +42,7 @@
 		type="text"
 		name="search"
 		bind:value
-		class="bg-zinc-900 outline-none flex-grow text-zinc-50 placeholder:text-zinc-600"
+		class="bg-zinc-900 outline-none flex-grow placeholder:text-zinc-600 text-zinc-50"
 		placeholder="Search for an account"
 		on:keydown={handleKeydown}
 	/>

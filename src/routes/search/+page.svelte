@@ -1,11 +1,16 @@
 <script>
+	import { goto } from '$app/navigation';
 	import Searchbar from '../../feaures/common/searchbar.svelte';
 	import SectionHeader from '../../feaures/common/section-header.svelte';
 
 	let searchQuery = '';
 
-	const handleSearch = () => {
-		console.log(searchQuery);
+	const handleSearch = (event) => {
+		if (event.detail.isValid) {
+			goto(`/account/${event.detail.username}-${event.detail.tag}`);
+		} else {
+			console.log('invalid search');
+		}
 	};
 </script>
 
