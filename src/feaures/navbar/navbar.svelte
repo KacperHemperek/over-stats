@@ -5,6 +5,7 @@
 	import { navigating } from '$app/stores';
 	import NavbarLink from './navbar-link.svelte';
 	import { links } from '$lib/utils/nav-links';
+	import PageLoader from './page-loader.svelte';
 
 	let showSidebar = false;
 
@@ -13,8 +14,10 @@
 	}
 </script>
 
-<nav class="sticky top-0 left-0 bg-zinc-900 z-50 shadow-md">
-	<div class=" text-zinc-50 flex justify-between items-center mx-auto p-4 lg:max-w-4xl container">
+<nav class="sticky top-0 left-0 bg-zinc-900 z-40 shadow-md">
+	<div
+		class=" text-zinc-50 flex justify-between items-center mx-auto p-4 lg:max-w-4xl container relative"
+	>
 		<a href="/" class="text-xl font-bold uppercase">
 			Over <span class="text-orange-500">Stats</span>
 		</a>
@@ -73,3 +76,7 @@
 		</div>
 	</div>
 </nav>
+
+{#if $navigating}
+	<PageLoader />
+{/if}
