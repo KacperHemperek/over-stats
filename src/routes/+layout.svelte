@@ -43,11 +43,11 @@
 		</MobileNavButton>
 		{#if showSidebar}
 			<div
-				class="w-screen h-[100dvh] bg-zinc-900 lg:hidden fixed top-0 left-0 shadow-md"
+				class="w-screen h-[100dvh] bg-zinc-900 lg:hidden fixed top-0 left-0"
 				in:fly={{ duration: 400, x: '100%', opacity: 1, easing: cubicOut }}
 				out:fly={{ duration: 400, x: '100%', opacity: 1, easing: cubicOut }}
 			>
-				<div class="p-4 flex justify-end items-center">
+				<div class="p-4 flex justify-end items-center container lg:max-w-4xl mx-auto">
 					<MobileNavButton on:click={() => (showSidebar = false)}>
 						<svg
 							slot="icon"
