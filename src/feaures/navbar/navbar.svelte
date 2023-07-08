@@ -4,13 +4,9 @@
 	import { cubicOut } from 'svelte/easing';
 	import { navigating } from '$app/stores';
 	import NavbarLink from './navbar-link.svelte';
+	import { links } from '$lib/utils/nav-links';
 
 	let showSidebar = false;
-
-	const links = [
-		{ name: 'Home', href: '/' },
-		{ name: 'News', href: '/news' }
-	];
 
 	$: if ($navigating) {
 		showSidebar = false;
