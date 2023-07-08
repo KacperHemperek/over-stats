@@ -3,7 +3,7 @@
 	import GithubIcon from '../common/github-icon.svelte';
 </script>
 
-<footer class="bg-zinc-950 text-zinc-300 p-4 text-sm text-center">
+<footer class="bg-zinc-950 text-zinc-300 p-4 text-sm text-center py-14">
 	<div class="container lg:max-w-4xl mx-auto px-4">
 		<div class="grid gap-6 md:grid-cols-2">
 			<div class="flex flex-col gap-1">
