@@ -1,5 +1,6 @@
 <script>
 	import InfoCard from '../feaures/homepage/info-card.svelte';
+	import SectionHeader from '../feaures/common/section-header.svelte';
 
 	const homepageCards = [
 		{
@@ -56,15 +57,12 @@
 		content="Over Stats - get stats for your account in ranked and unranked matches"
 	/>
 </svelte:head>
-
-<header class=" flex flex-col text-center h-[80vh] items-center justify-center px-6 bg-transparent">
-	<h1 class="text-3xl font-bold max-w-md mx-auto mb-4">
-		OVER <span class="text-orange-500">STATS</span>
-	</h1>
-	<p class="text-lg leading-5 text-zinc-500">
-		Find your account, track your <span class="text-orange-500">stats</span> and keep up with your games
-	</p>
-</header>
+<SectionHeader>
+	<span slot="title">OVER <span class="text-orange-500">STATS</span></span>
+	<span slot="description"
+		>Find your account, track your <span class="text-orange-500">stats</span> and keep up with your games</span
+	>
+</SectionHeader>
 
 <article>
 	<h1 class="text-2xl font-bold text-center uppercase mb-8">Features</h1>

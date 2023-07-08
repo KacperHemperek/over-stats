@@ -3,12 +3,22 @@
 	import MobileNavButton from '../feaures/navbar/mobile-nav-button.svelte';
 	import { fly } from 'svelte/transition';
 	import { cubicOut } from 'svelte/easing';
+	import { navigating } from '$app/stores';
 
 	let showSidebar = false;
+
+	const links = [
+		{ name: 'Home', href: '/' },
+		{ name: 'News', href: '/news' }
+	];
+
+	$: if ($navigating) {
+		showSidebar = false;
+	}
 </script>
 
-<nav class="container mx-auto p-4 lg:max-w-4xl sticky top-0 left-0">
-	<div class=" text-zinc-50 bg-zinc-900 flex justify-between items-center">
+<nav class="sticky top-0 left-0 bg-zinc-900 z-50 shadow-md">
+	<div class=" text-zinc-50 flex justify-between items-center mx-auto p-4 lg:max-w-4xl container">
 		<a href="/" class="text-xl font-bold uppercase">
 			Over <span class="text-orange-500">Stats</span>
 		</a>
@@ -52,14 +62,20 @@
 						>
 					</MobileNavButton>
 				</div>
-				<div class="grid p-4">
-					<a href="/" class="text-2xl font-semibold text-center"> Home </a>
+				<div class="grid p-4 gap-4">
+					{#each links as link}
+						<a href={link.href} class="text-2xl font-semibold uppercase text-center py-2">
+							{link.name}
+						</a>
+					{/each}
 				</div>
 			</div>
 		{/if}
 
 		<div class="space-x-12 hidden lg:block">
-			<a href="/" class=" font-semibold"> Home </a>
+			{#each links as link}
+				<a href={link.href} class="font-semibold uppercase">{link.name}</a>
+			{/each}
 		</div>
 	</div>
 </nav>
