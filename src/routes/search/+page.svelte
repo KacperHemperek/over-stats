@@ -5,6 +5,8 @@
 	import Tooltip from '../../feaures/common/tooltip.svelte';
 
 	let searchQuery = '';
+
+	/** @type{NodeJS.Timeout | null}*/
 	let timeout = null;
 	let showTooltip = false;
 
@@ -14,11 +16,9 @@
 		} else {
 			showTooltip = true;
 			if (timeout) {
-				console.log('clearing timeout');
 				clearTimeout(timeout);
 			}
 			timeout = setTimeout(() => {
-				console.log('hidint tooltip');
 				showTooltip = false;
 			}, 2000);
 		}
