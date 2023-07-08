@@ -10,8 +10,6 @@
 	export let name;
 
 	$: active = $page.url.pathname === href;
-
-	console.log($page.url.pathname);
 </script>
 
 <a
