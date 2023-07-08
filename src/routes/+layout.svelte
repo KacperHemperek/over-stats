@@ -4,6 +4,7 @@
 	import { fly } from 'svelte/transition';
 	import { cubicOut } from 'svelte/easing';
 	import { navigating } from '$app/stores';
+	import NavbarLink from '../feaures/navbar/navbar-link.svelte';
 
 	let showSidebar = false;
 
@@ -64,9 +65,7 @@
 				</div>
 				<div class="grid p-4 gap-4">
 					{#each links as link}
-						<a href={link.href} class="text-2xl font-semibold uppercase text-center py-2">
-							{link.name}
-						</a>
+						<NavbarLink href={link.href} name={link.name} />
 					{/each}
 				</div>
 			</div>
@@ -74,7 +73,7 @@
 
 		<div class="space-x-12 hidden lg:block">
 			{#each links as link}
-				<a href={link.href} class="font-semibold uppercase">{link.name}</a>
+				<NavbarLink href={link.href} name={link.name} />
 			{/each}
 		</div>
 	</div>
