@@ -1,17 +1,17 @@
 <script>
 	import './styles.css';
-	import MobileNavButton from '../feaures/navbar/mobile-nav-button.svelte';
-	import { fly } from 'svelte/transition';
-	import { cubicOut } from 'svelte/easing';
-	import { navigating } from '$app/stores';
-	import NavbarLink from '../feaures/navbar/navbar-link.svelte';
 	import Navbar from '../feaures/navbar/navbar.svelte';
+	import Footer from '../feaures/footer/footer.svelte';
 
 	let showSidebar = false;
 </script>
 
-<Navbar />
+<div class="min-h-screen flex flex-col">
+	<Navbar />
 
-<main class="container lg:max-w-4xl mx-auto px-4">
-	<slot />
-</main>
+	<main class="container lg:max-w-4xl mx-auto px-4 flex-grow mb-12">
+		<slot />
+	</main>
+
+	<Footer />
+</div>
