@@ -41,7 +41,7 @@
     </svg>`
 		},
 		{
-			title: "What's New",
+			title: 'News',
 			description:
 				'Stay up-to-date with the latest features, updates, and exciting additions to Overwatch 2.',
 			icon: `
