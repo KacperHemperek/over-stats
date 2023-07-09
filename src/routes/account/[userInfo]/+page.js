@@ -2,13 +2,13 @@
 export async function load({ params, fetch }) {
 	// @ts-expect-error -- params is not typed
 	const [username, tag] = params.userInfo.split('-');
-	console.log({ username, tag });
 
 	const res = await fetch(`/api/accounts/${username}/${tag}`);
 
 	if (res.ok) {
 		/**
 		 * @type {{
+		 *  username: string;
 		 *  playerTitle: string;
 		 *  image: string;
 		 *  ranks: Array<{ rankIconSrc: string; roleIconSrc: string; }>;

@@ -11,7 +11,7 @@ export async function GET({ params }) {
 
 		const image = $('.Profile-player--portrait').attr('src');
 		const playerTitle = $('.Profile-player--title').text();
-
+		const playerName = $('.Profile-player--name').text();
 		/**
 		 * @type {Array<{ rankIconSrc: string | undefined; roleIconSrc: string|undefined }>}
 		 */
@@ -31,7 +31,8 @@ export async function GET({ params }) {
 		return json({
 			image,
 			playerTitle,
-			ranks: ranks.filter((rank) => !!rank.rankIconSrc && !!rank.roleIconSrc)
+			ranks: ranks.filter((rank) => !!rank.rankIconSrc && !!rank.roleIconSrc),
+			username: playerName
 		});
 	} catch (err) {
 		console.error(err);
